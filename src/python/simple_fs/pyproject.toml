@@ -1,0 +1,22 @@
+[project]
+name = "simple_fs"
+version = "1.0.0"
+authors = [
+  { name="Max Kas"},
+]
+description = "Filesystem API library"
+readme = "README.md"
+requires-python = ">=3.11"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+  'typeguard >= 4.1.5',
+  'wrapt >= 1.16.0',
+]
+
+[project.urls]
+Homepage = "https://github.com/mku11/SimpleFS"
+Issues = "https://github.com/mku11/SimpleFS/issues"
