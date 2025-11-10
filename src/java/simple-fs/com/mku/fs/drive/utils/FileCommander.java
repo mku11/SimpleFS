@@ -28,7 +28,6 @@ import com.mku.fs.file.IVirtualFile;
 import com.mku.func.BiConsumer;
 import com.mku.func.Consumer;
 import com.mku.func.Function;
-import com.mku.salmon.sequence.SequenceException;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -151,7 +150,7 @@ public class FileCommander {
                                    Consumer<RealFileTaskProgress> onProgressChanged,
                                    Function<IFile, String> autoRename, BiConsumer<IFile, Exception> onFailed,
                                    ArrayList<IVirtualFile> importedFiles, int[] count, int total,
-                                   HashMap<String, IVirtualFile> existingFiles) throws IOException {
+                                   HashMap<String, IVirtualFile> existingFiles) throws Exception {
         IVirtualFile sfile = existingFiles.containsKey(fileToImport.getName())
                 ? existingFiles.get(fileToImport.getName()) : null;
         if (fileToImport.isDirectory()) {
@@ -194,15 +193,14 @@ public class FileCommander {
                 existingFiles.put(sfile.getName(), sfile);
                 importedFiles.add(sfile);
                 count[0]++;
-            } catch (SequenceException ex) {
-                throw ex;
             } catch (Exception ex) {
-                if (onFailed != null)
-                    onFailed.accept(fileToImport, ex);
+                if(!onError(ex)) {
+                    if (onFailed != null)
+                        onFailed.accept(fileToImport, ex);
+                }
             }
         }
     }
-
 
     /**
      * Export IVirtualFile(s) from the drive.
@@ -316,11 +314,11 @@ public class FileCommander {
                 existingFiles.put(rfile.getName(), rfile);
                 exportedFiles.add(rfile);
                 count[0]++;
-            } catch (SequenceException ex) {
-                throw ex;
             } catch (Exception ex) {
-                if (onFailed != null)
-                    onFailed.accept(fileToExport, ex);
+                if(!onError(ex)) {
+                    if (onFailed != null)
+                        onFailed.accept(fileToExport, ex);
+                }
             }
         }
     }
@@ -585,6 +583,16 @@ public class FileCommander {
      */
     public void renameFile(IVirtualFile ifile, String newFilename) throws IOException {
         ifile.rename(newFilename);
+    }
+
+    /**
+     * Handler the error. If true the commander will proceed with the next
+     * file otherwise it will stop the batch. You can override this in your implementation.
+     * @param ex The exception
+     * @return True if recoverable
+     */
+    protected boolean onError(Exception ex) {
+        return false;
     }
 
     /**

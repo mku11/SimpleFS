@@ -26,9 +26,6 @@ SOFTWARE.
 import com.mku.func.BiConsumer;
 import com.mku.func.Function;
 import com.mku.func.TriConsumer;
-import com.mku.salmon.SecurityException;
-import com.mku.salmon.integrity.IntegrityException;
-import com.mku.salmonfs.auth.AuthException;
 import com.mku.streams.RandomAccessStream;
 
 import java.io.IOException;
@@ -43,8 +40,6 @@ public interface IVirtualFile {
      *
      * @return The input stream
      * @throws IOException        Thrown if there is an IO error.
-     * @throws SecurityException  Thrown if there is a security exception
-     * @throws IntegrityException Thrown if the data are corrupt or tampered with.
      */
     RandomAccessStream getInputStream() throws IOException;
 
@@ -68,10 +63,7 @@ public interface IVirtualFile {
      *
      * @param filename The filename to search for
      * @return The child file
-     * @throws SecurityException  Thrown if there is a security exception
-     * @throws IntegrityException Thrown if the data are corrupt or tampered with.
-     * @throws IOException        Thrown if there is an IO error.
-     * @throws AuthException      Thrown if there is an Authorization error
+     * @throws IOException        Thrown if there is an exception.
      */
     IVirtualFile getChild(String filename) throws IOException;
 

@@ -23,7 +23,6 @@ SOFTWARE.
 */
 
 using Mku.FS.File;
-using Mku.Salmon.Sequence;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -169,14 +168,12 @@ public class FileCommander
                 importedFiles.Add(sfile);
                 count++;
             }
-            catch (SequenceException ex)
-            {
-                throw;
-            }
             catch (Exception ex)
             {
-                if (OnFailed != null)
-                    OnFailed(fileToImport, ex);
+				if(!OnError(ex)) {
+					if (OnFailed != null)
+						OnFailed(fileToImport, ex);
+				}
             }
         }
     }
@@ -295,14 +292,12 @@ public class FileCommander
                 exportedFiles.Add(rfile);
                 count++;
             }
-            catch (SequenceException ex)
-            {
-                throw;
-            }
             catch (Exception ex)
             {
-                if (OnFailed != null)
-                    OnFailed(fileToExport, ex);
+				if(!OnError(ex)) {
+					if (OnFailed != null)
+						OnFailed(fileToExport, ex);
+				}
             }
         }
 
@@ -552,6 +547,14 @@ public class FileCommander
     public void RenameFile(IVirtualFile file, string newFilename)
     {
         file.Rename(newFilename);
+    }
+	
+	/// <summary>
+    /// Handle the error
+	/// </summary>
+	virtual
+    protected bool OnError(Exception ex) {
+		return false;
     }
 
     /// <summary>
