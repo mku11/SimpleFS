@@ -22,8 +22,8 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-import { IFile } from "../file/ifile";
-import { IVirtualFile } from "../file/ivirtual_file";
+import { IFile } from "../file/ifile.js";
+import { IVirtualFile } from "../file/ivirtual_file.js";
 
 /*
  * Virtual Drive 

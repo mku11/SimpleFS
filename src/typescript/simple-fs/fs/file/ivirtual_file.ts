@@ -22,8 +22,8 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-import { RandomAccessStream } from "../../../simple-io/streams/random_access_stream"
-import { CopyOptions, IFile, MoveOptions } from "./ifile";
+import { RandomAccessStream } from "../../../simple-io/streams/random_access_stream.js"
+import { CopyOptions, IFile, MoveOptions } from "./ifile.js";
 /*
 * A virtual file.
 */
