@@ -22,17 +22,17 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-import { RandomAccessStream } from '../../../salmon-core/streams/random_access_stream.js';
+import { RandomAccessStream } from '../../../simple-io/streams/random_access_stream.js';
 import { CopyOptions, IFile, MoveOptions } from './ifile.js';
 import { HttpFileStream } from '../streams/http_file_stream.js';
-import { IOException } from '../../../salmon-core/streams/io_exception.js';
-import { MemoryStream } from '../../../salmon-core/streams/memory_stream.js';
+import { IOException } from '../../../simple-io/streams/io_exception.js';
+import { MemoryStream } from '../../../simple-io/streams/memory_stream.js';
 import { Credentials } from './credentials.js';
 import { HttpSyncClient } from './http_sync_client.js';
 import { Base64Utils } from '../../../simple-io/encode/base64_utils.js';
 
 /**
- * Salmon RealFile implementation for Javascript.
+ * File implementation for Javascript.
  */
 export class HttpFile implements IFile {
 	/**

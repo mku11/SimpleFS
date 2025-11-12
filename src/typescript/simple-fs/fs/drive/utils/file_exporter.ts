@@ -25,16 +25,16 @@ SOFTWARE.
 import { IFile } from "../../file/ifile.js";
 import { IVirtualFile } from "../../file/ivirtual_file.js";
 import { exportFilePart } from "./file_exporter_helper.js";
-import { RandomAccessStream } from "../../../../salmon-core/streams/random_access_stream.js";
-import { IOException } from "../../../../salmon-core/streams/io_exception.js";
-import { Platform, PlatformType } from "../../../../salmon-core/platform/platform.js";
+import { RandomAccessStream } from "../../../../simple-io/streams/random_access_stream.js";
+import { IOException } from "../../../../simple-io/streams/io_exception.js";
+import { Platform, PlatformType } from "../../../../simple-io/platform/platform.js";
 
 /**
  * Abstract class for exporting files from a drive.
  * Make sure you use setWorkerPath() with the correct worker script.
  */
 export abstract class FileExporter {
-    #workerPath = './lib/salmon-fs/fs/drive/utils/file_exporter_worker.js';
+    #workerPath = './lib/simple-fs/fs/drive/utils/file_exporter_worker.js';
     static readonly #DEFAULT_BUFFER_SIZE: number = 512 * 1024;
     static readonly #DEFAULT_THREADS: number = 1;
     static readonly #enableMultiThread: boolean = true;

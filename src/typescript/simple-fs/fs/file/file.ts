@@ -22,14 +22,14 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-import { RandomAccessStream } from '../../../salmon-core/streams/random_access_stream.js';
+import { RandomAccessStream } from '../../../simple-io/streams/random_access_stream.js';
 import { CopyContentsOptions, CopyOptions, IFile, MoveOptions, copyFileContents } from './ifile.js';
 import { FileStream } from '../streams/file_stream.js';
-import { IOException } from '../../../salmon-core/streams/io_exception.js';
+import { IOException } from '../../../simple-io/streams/io_exception.js';
 import { Credentials } from './credentials.js';
 
 /**
- * Salmon real local filesystem implementation for Javascript. This can be used only with the 
+ * Local filesystem implementation for Javascript. This can be used only with the 
  * browser.
  */
 export class File implements IFile {

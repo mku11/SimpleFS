@@ -22,13 +22,13 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-import { RandomAccessStream } from '../../../salmon-core/streams/random_access_stream.js';
+import { RandomAccessStream } from '../../../simple-io/streams/random_access_stream.js';
 import { CopyOptions, IFile, MoveOptions } from './ifile.js';
 import { LocalStorageFileStream } from '../streams/ls_file_stream.js';
 import { Credentials } from './credentials.js';
 
 /**
- * Salmon localStorage implementation. This can be used to store small files.
+ * LocalStorage implementation. This can be used to store small files.
  */
 export class LocalStorageFile implements IFile {
 	/**

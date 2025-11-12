@@ -53,7 +53,6 @@ export abstract class VirtualDrive {
 	/**
      * Return the virtual root directory of the drive.
      * @returns {Promise<IVirtualFile | null>} The virtual file
-     * @throws SalmonAuthException Thrown when error during authorization
      */
 	public abstract getRoot(): Promise<IVirtualFile | null>;
 }

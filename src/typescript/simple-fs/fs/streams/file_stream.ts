@@ -22,7 +22,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-import { RandomAccessStream, SeekOrigin } from "../../../salmon-core/streams/random_access_stream.js";
+import { RandomAccessStream, SeekOrigin } from "../../../simple-io/streams/random_access_stream.js";
 import { IFile } from "../file/ifile.js";
 
 // File operations on the local file system may be slow due to

@@ -22,8 +22,8 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-import { IOException } from "../../../salmon-core/streams/io_exception.js";
-import { RandomAccessStream, SeekOrigin } from "../../../salmon-core/streams/random_access_stream.js";
+import { IOException } from "../../../simple-io/streams/io_exception.js";
+import { RandomAccessStream, SeekOrigin } from "../../../simple-io/streams/random_access_stream.js";
 import { IFile } from "../file/ifile.js";
 import { truncate } from 'node:fs/promises';
 import { openSync } from "node:fs";

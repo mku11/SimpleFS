@@ -25,7 +25,7 @@ SOFTWARE.
 import { IVirtualFile } from "../../file/ivirtual_file.js";
 
 /**
- * Class searches for files in a SalmonDrive by filename.
+ * Class searches for files in a Drive by filename.
  */
 export class FileSearcher {
     #running: boolean = false;

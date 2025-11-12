@@ -22,9 +22,9 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-import { IOException } from "../../../salmon-core/streams/io_exception.js";
-import { MemoryStream } from '../../../salmon-core/streams/memory_stream.js';
-import { RandomAccessStream, SeekOrigin } from "../../../salmon-core/streams/random_access_stream.js";
+import { IOException } from "../../../simple-io/streams/io_exception.js";
+import { MemoryStream } from '../../../simple-io/streams/memory_stream.js';
+import { RandomAccessStream, SeekOrigin } from "../../../simple-io/streams/random_access_stream.js";
 import { WSFile } from "../file/ws_file.js";
 import { Base64Utils } from '../../../simple-io/encode/base64_utils.js';
 import { HttpSyncClient } from '../file/http_sync_client.js';

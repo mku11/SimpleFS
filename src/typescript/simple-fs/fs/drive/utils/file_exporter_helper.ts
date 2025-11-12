@@ -24,7 +24,7 @@ SOFTWARE.
 
 import { IFile } from "../../file/ifile.js";
 import { IVirtualFile } from "../../file/ivirtual_file.js";
-import { RandomAccessStream } from "../../../../salmon-core/streams/random_access_stream.js";
+import { RandomAccessStream } from "../../../../simple-io/streams/random_access_stream.js";
 
 
 /**

@@ -22,17 +22,17 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-import { RandomAccessStream } from '../../../salmon-core/streams/random_access_stream.js';
+import { RandomAccessStream } from '../../../simple-io/streams/random_access_stream.js';
 import { CopyContentsOptions, CopyOptions, IFile, MoveOptions, copyFileContents } from './ifile.js';
 import { NodeFileStream } from '../streams/node_file_stream.js';
-import { IOException } from '../../../salmon-core/streams/io_exception.js';
+import { IOException } from '../../../simple-io/streams/io_exception.js';
 import { mkdir, stat, readdir, rename, open, FileHandle } from 'node:fs/promises';
 import { Stats, rmdirSync, unlinkSync } from 'node:fs';
 import path from 'node:path';
 import { Credentials } from './credentials.js';
 
 /**
- * Salmon real local filesystem implementation for node js. This can be used only with node js.
+ * Local filesystem implementation for node js. This can be used only with node js.
  */
 export class NodeFile implements IFile {
 	/**
