@@ -36,7 +36,7 @@ using System.Web;
 using System.Runtime.CompilerServices;
 using static Mku.FS.File.IFile;
 using MemoryStream = Mku.Streams.MemoryStream;
-using Mku.Salmon.Encode;
+using Mku.Encode;
 using System.Net.Http.Headers;
 
 namespace Mku.FS.File;

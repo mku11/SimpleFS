@@ -33,7 +33,7 @@ using System.Runtime.CompilerServices;
 using Mku.FS.File;
 using Mku.Streams;
 using static Mku.FS.File.HttpFile;
-using Mku.Salmon.Encode;
+using Mku.Encode;
 using System.Net.Http.Headers;
 using System.Text;
 

@@ -24,7 +24,7 @@ SOFTWARE.
 */
 
 import com.mku.fs.streams.WSFileStream;
-import com.mku.salmon.encode.Base64Utils;
+import com.mku.encode.Base64Utils;
 import com.mku.streams.MemoryStream;
 import com.mku.streams.RandomAccessStream;
 import org.json.JSONArray;

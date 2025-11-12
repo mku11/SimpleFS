@@ -25,7 +25,7 @@ SOFTWARE.
 import { MemoryStream } from "../../../salmon-core/streams/memory_stream.js";
 import { RandomAccessStream, SeekOrigin } from "../../../salmon-core/streams/random_access_stream.js";
 import { IFile } from "../file/ifile.js";
-import { Base64Utils } from '../../../salmon-core/salmon/encode/base64_utils.js';
+import { Base64Utils } from '../../../simple-io/encode/base64_utils.js';
 
 /**
  * An advanced file stream implementation for localStorage files.

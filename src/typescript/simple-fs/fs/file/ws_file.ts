@@ -28,7 +28,7 @@ import { WSFileStream } from '../streams/ws_file_stream.js';
 import { IOException } from '../../../salmon-core/streams/io_exception.js';
 import { Credentials } from './credentials.js';
 import { HttpSyncClient } from './http_sync_client.js';
-import { Base64Utils } from '../../../salmon-core/salmon/encode/base64_utils.js';
+import { Base64Utils } from '../../../simple-io/encode/base64_utils.js';
 
 /**
  * Salmon RealFile implementation for Web Service files.

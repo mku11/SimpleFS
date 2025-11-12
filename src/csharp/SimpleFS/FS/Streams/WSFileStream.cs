@@ -36,7 +36,7 @@ using System.Collections.Specialized;
 using System.Runtime.CompilerServices;
 using Mku.FS.File;
 using static Mku.FS.File.HttpFile;
-using Mku.Salmon.Encode;
+using Mku.Encode;
 
 namespace Mku.FS.Streams;
 

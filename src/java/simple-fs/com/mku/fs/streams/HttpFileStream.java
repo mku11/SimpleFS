@@ -25,7 +25,7 @@ SOFTWARE.
 
 import com.mku.fs.file.HttpFile;
 import com.mku.fs.file.HttpSyncClient;
-import com.mku.salmon.encode.Base64Utils;
+import com.mku.encode.Base64Utils;
 import com.mku.streams.RandomAccessStream;
 
 import java.io.*;

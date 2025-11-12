@@ -39,7 +39,7 @@ using System.Runtime.CompilerServices;
 
 using System.Web;
 using static Mku.FS.File.IFile;
-using Mku.Salmon.Encode;
+using Mku.Encode;
 
 
 namespace Mku.FS.File;

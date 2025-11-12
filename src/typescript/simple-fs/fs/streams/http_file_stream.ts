@@ -25,7 +25,7 @@ SOFTWARE.
 import { IOException } from "../../../salmon-core/streams/io_exception.js";
 import { RandomAccessStream, SeekOrigin } from "../../../salmon-core/streams/random_access_stream.js";
 import { IFile } from "../file/ifile.js";
-import { Base64Utils } from '../../../salmon-core/salmon/encode/base64_utils.js';
+import { Base64Utils } from '../../../simple-io/encode/base64_utils.js';
 import { HttpSyncClient } from '../file/http_sync_client.js';
 import { Credentials } from '../file/credentials.js';
 
