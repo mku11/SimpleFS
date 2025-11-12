@@ -134,7 +134,7 @@ public class FileStream extends RandomAccessStream {
      */
     @Override
     public void setLength(long value) throws IOException {
-        fileChannel.position(value);
+        fileChannel.truncate(value);
     }
 
     /**
