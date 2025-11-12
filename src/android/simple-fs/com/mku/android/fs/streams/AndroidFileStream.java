@@ -124,7 +124,7 @@ public class AndroidFileStream extends RandomAccessStream {
      * @throws IOException Thrown if error during IO
      */
     public void setLength(long value) throws IOException {
-        fileChannel.position(value);
+        fileChannel.truncate(value);
     }
 
     /**
