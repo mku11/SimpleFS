@@ -591,7 +591,7 @@ public class FileCommander {
      * @param ex The exception
      * @return True if recoverable
      */
-    protected boolean onError(Exception ex) {
+    protected boolean onError(Exception ex) throws Exception {
         return false;
     }
 
