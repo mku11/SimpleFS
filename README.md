@@ -4,7 +4,7 @@ Published under MIT License
 
 [![License: MIT](https://img.shields.io/github/license/mku11/SimpleFS.svg)](LICENSE)
 [![Version](https://img.shields.io/badge/version-1.0.1-blue)](https://github.com/mku11/SimpleFS/releases)
-[![GitHub Releases](https://img.shields.io/github/downloads/mku11/Salmon-AES-CTR/latest/total?logo=github)](https://github.com/mku11/SimpleFS/releases)
+[![GitHub Releases](https://img.shields.io/github/downloads/mku11/SimpleFS/latest/total?logo=github)](https://github.com/mku11/SimpleFS/releases)
 
 ## Features
 * Abstract file system API with common file operations: create, delete, read, write, list, copy, move, etc
