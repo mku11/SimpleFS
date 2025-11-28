@@ -214,7 +214,6 @@ public class FileStream extends RandomAccessStream {
     @Override
     public void close() throws IOException {
         fileChannel.close();
-        fileChannel.close();
         raf.close();
     }
 }
