@@ -242,14 +242,17 @@ public class File : IFile
             throw new IOException("Target directory does not exist");
         IFile newFile = newDir.GetChild(newName);
         if (newFile != null && newFile.Exists)
-            throw new IOException("Another file/directory already exists");
+            throw new IOException("Another file/directory already exists: " 
+			+ newName + ", exists: " + newFile.Name);
         string nFilePath = newDir.DisplayPath + File.Separator + newName;
         if (options.onProgressChanged != null)
             options.onProgressChanged(0L, this.Length);
         if (IsDirectory)
             System.IO.Directory.Move(filePath, nFilePath);
-        else if (IsFile)
+        else if (IsFile) {
+			Console.WriteLine("moving file: " + filePath + " to: " + nFilePath);
             System.IO.File.Move(filePath, nFilePath);
+		}
         if (options.onProgressChanged != null)
             options.onProgressChanged(newFile.Length, newFile.Length);
         return new File(nFilePath);
