@@ -76,7 +76,6 @@ export async function importFilePart(fileToImport: IFile, aesFile: IVirtualFile,
                 onProgressChanged(totalBytesRead[0], count);
         }
     } catch (ex) {
-        console.error(ex);
         throw ex;
     } finally {
         if (targetStream) {

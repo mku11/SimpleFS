@@ -77,7 +77,6 @@ export async function exportFilePart(fileToExport: IVirtualFile, exportFile: IFi
                 onProgressChanged(totalBytesWritten[0], count);
         }
     } catch (ex) {
-        console.error(ex);
         throw ex;
     } finally {
         if (targetStream) {

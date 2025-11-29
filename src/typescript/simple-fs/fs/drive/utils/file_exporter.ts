@@ -163,7 +163,6 @@ export abstract class FileExporter {
             if (this.#lastException)
                 throw this.#lastException;
         } catch (ex) {
-            console.error(ex);
             this.#failed = true;
             this.#stopped[0] = true;
             this.#lastException = ex;
@@ -250,7 +249,6 @@ export abstract class FileExporter {
             }
         }).catch((err) => {
             err = this.getError(err);
-            console.error(err);
             this.#failed = true;
             this.#lastException = err;
             this.stop();

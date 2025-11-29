@@ -175,7 +175,6 @@ export abstract class FileImporter {
             if (this.#lastException)
                 throw this.#lastException;
         } catch (ex) {
-            console.log(ex);
             this.#failed = true;
             this.#stopped[0] = true;
             this.#lastException = ex;
@@ -259,7 +258,6 @@ export abstract class FileImporter {
                 }
             }).catch((err) => {
                 err = this.#getError(err);
-                console.error(err);
                 this.#failed = true;
                 this.#lastException = err;
                 this.stop();
