@@ -177,7 +177,6 @@ public abstract class FileExporter
         }
         catch (Exception ex)
         {
-            Console.Error.WriteLine(ex);
             failed = true;
             stopped = true;
             throw;
@@ -268,7 +267,6 @@ public abstract class FileExporter
         }
         catch (Exception ex)
         {
-            Console.Error.WriteLine(ex);
             failed = true;
             lastException = ex;
             Stop();

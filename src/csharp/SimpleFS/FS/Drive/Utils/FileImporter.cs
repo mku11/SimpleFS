@@ -183,7 +183,6 @@ public abstract class FileImporter
         }
         catch (Exception ex)
         {
-            Console.Error.WriteLine(ex);
             failed = true;
             stopped = true;
             throw;
@@ -273,7 +272,6 @@ public abstract class FileImporter
         }
         catch (Exception ex)
         {
-            Console.Error.WriteLine(ex);
             failed = true;
             lastException = ex;
             Stop();
