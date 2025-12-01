@@ -94,8 +94,12 @@ export abstract class FileExporter {
     public stop(): void {
         this.#stopped[0] = true;
         let msg = { message: 'stop' };
-        for (let i = 0; i < this.#workers.length; i++)
+        for (let i = 0; i < this.#workers.length; i++) {
             this.#workers[i].postMessage(msg);
+            // workaround for node since it doesn't remove previous pending close events
+            this.#workers[i].terminate();
+            this.#workers[i] = null;
+        }
     }
 
     /**
