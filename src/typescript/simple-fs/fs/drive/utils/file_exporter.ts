@@ -34,7 +34,7 @@ import { Platform, PlatformType } from "../../../../simple-io/platform/platform.
  * Make sure you use setWorkerPath() with the correct worker script.
  */
 export abstract class FileExporter {
-    #workerPath = './lib/simple-fs/fs/drive/utils/file_exporter_worker.js';
+    #workerPath = "";
     static readonly #DEFAULT_BUFFER_SIZE: number = 512 * 1024;
     static readonly #DEFAULT_THREADS: number = 1;
     static readonly #enableMultiThread: boolean = true;
@@ -188,6 +188,8 @@ export abstract class FileExporter {
         let bytesWritten: number[] = new Array(runningThreads);
         bytesWritten.fill(0);
         this.#promises = [];
+        if (!this.#workerPath)
+            this.#workerPath = await Platform.getAbsolutePath("file_exporter_worker.js", import.meta.url);
         for (let i = 0; i < runningThreads; i++) {
             this.#promises.push(new Promise(async (resolve, reject) => {
                 if (Platform.getPlatform() == PlatformType.Browser) {
