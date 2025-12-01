@@ -55,9 +55,10 @@ export class FileExporterWorker {
     }
 
     async receive(worker: FileExporterWorker, event: any) {
-        if (event.message == 'start')
-            await worker.startExport(event);
-        else if (event.message == 'stop')
+        let params = Platform.getPlatform() == PlatformType.NodeJs ? event : event.data;
+        if (params.message == 'start')
+            await worker.startExport(params);
+        else if (params.message == 'stop')
             worker.stopExport();
     }
 
@@ -65,9 +66,8 @@ export class FileExporterWorker {
         this.stopped[0] = true;
     }
 
-    async startExport(event: any): Promise<void> {
+    async startExport(params: any): Promise<void> {
         try {
-            let params = Platform.getPlatform() == PlatformType.NodeJs ? event : event.data;
             if(params.allowClearTextTraffic)
                 HttpSyncClient.setAllowClearTextTraffic(true);
             let onProgressChanged: (position: number, length: number) => void = async function (position, length): Promise<void> {

@@ -60,9 +60,10 @@ export class FileImporterWorker {
      * @param {any} event The event
      */
     async receive(worker: FileImporterWorker, event: any) {
-        if (event.message == 'start')
-            await worker.startImport(event);
-        else if (event.message == 'stop')
+        let params = Platform.getPlatform() == PlatformType.NodeJs ? event : event.data;
+        if (params.message == 'start')
+            await worker.startImport(params);
+        else if (params.message == 'stop')
             worker.stopImport();
     }
 
@@ -70,9 +71,8 @@ export class FileImporterWorker {
         this.stopped[0] = true;
     }
 
-    async startImport(event: any): Promise<void> {
+    async startImport(params: any): Promise<void> {
         try {
-            let params = Platform.getPlatform() == PlatformType.NodeJs ? event : event.data;
             if(params.allowClearTextTraffic)
                 HttpSyncClient.setAllowClearTextTraffic(true);
             let onProgressChanged: (position: number, length: number) => void = async function (position, length): Promise<void> {
