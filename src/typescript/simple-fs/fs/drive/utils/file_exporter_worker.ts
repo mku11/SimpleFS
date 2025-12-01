@@ -55,9 +55,9 @@ export class FileExporterWorker {
     }
 
     async receive(worker: FileExporterWorker, event: any) {
-        if (event.message = 'start')
+        if (event.message == 'start')
             await worker.startExport(event);
-        else if (event.message = 'stop')
+        else if (event.message == 'stop')
             worker.stopExport();
     }
 
@@ -100,8 +100,6 @@ export class FileExporterWorker {
             else
                 postMessage(msgComplete);
         } catch (ex: any) {
-            console.error(ex);
-
             let type;
             if(ex.getCause != undefined && ex.getCause())
                 type = ex.getCause().constructor.name

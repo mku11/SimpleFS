@@ -60,9 +60,9 @@ export class FileImporterWorker {
      * @param {any} event The event
      */
     async receive(worker: FileImporterWorker, event: any) {
-        if (event.message = 'start')
+        if (event.message == 'start')
             await worker.startImport(event);
-        else if (event.message = 'stop')
+        else if (event.message == 'stop')
             worker.stopImport();
     }
 
@@ -104,7 +104,6 @@ export class FileImporterWorker {
             else
                 postMessage(msgComplete);
         } catch (ex: any) {
-            console.error(ex);
             let type;
             if(ex.getCause != undefined && ex.getCause())
                 type = ex.getCause().constructor.name
