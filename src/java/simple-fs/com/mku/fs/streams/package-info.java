@@ -1,4 +1,4 @@
 /**
  * Stream implementations for files.
  */
-package com.mku.fs.stream;
+package com.mku.fs.streams;
