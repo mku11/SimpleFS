@@ -52,6 +52,10 @@ public class AndroidFile implements IFile {
      * The directory separator
      */
     public static final String separator = "/";
+	
+	/**
+     * The Uri separator
+     */
     public static final String uriSeparator = "%2F";
 
     private DocumentFile documentFile;
