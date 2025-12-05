@@ -41,8 +41,17 @@ public abstract class VirtualDrive {
      */
     public abstract void onUnlockError();
 
+    /**
+     * Get the private directory for this drive
+     * @return The private directory
+     * @throws Exception If an error occurs
+     */
     public abstract IFile getPrivateDir() throws Exception;
 
+    /**
+     * Get the root directory of this drive
+     * @return The root directory
+     */
     public abstract IVirtualFile getRoot();
 
 }

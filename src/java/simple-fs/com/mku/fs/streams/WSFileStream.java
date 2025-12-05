@@ -42,9 +42,7 @@ public class WSFileStream extends RandomAccessStream {
     private static final String PATH = "path";
     private static final String POSITION = "position";
     private static final String LENGTH = "length";
-
-    private static String boundary = "*******";
-
+    private static final String boundary = "*******";
     private HttpURLConnection conn;
 
     /**
@@ -328,6 +326,10 @@ public class WSFileStream extends RandomAccessStream {
         }
     }
 
+    /**
+     * Reset the stream
+     * @throws IOException If an error occurs
+     */
     public void reset() throws IOException {
         if (this.outputStream != null)
             sendFooter();

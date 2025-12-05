@@ -590,6 +590,7 @@ public class FileCommander {
      * file otherwise it will stop the batch. You can override this in your implementation.
      * @param ex The exception
      * @return True if recoverable
+     * @throws Exception If error occurs
      */
     protected boolean onError(Exception ex) throws Exception {
         return false;

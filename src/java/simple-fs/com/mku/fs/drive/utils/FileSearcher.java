@@ -39,9 +39,23 @@ public class FileSearcher {
      * Event status types.
      */
     public enum SearchEvent {
-        SearchingIndex, SearchingFiles, SearchingFinished
+        /**
+         * Searching indexes
+         */
+        SearchingIndex,
+        /**
+         * Searching Files
+         */
+        SearchingFiles,
+        /**
+         * Searching Finished
+         */
+        SearchingFinished
     }
 
+    /**
+     * Stop current operation
+     */
     public void stop() {
         this.quit = true;
     }
