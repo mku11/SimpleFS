@@ -115,7 +115,7 @@ public class HttpSyncClient : HttpClient
             foreach (var header in request.Headers)
                 headers.Add(header.Key, header.Value);
 
-            response = base.Send(request, HttpCompletionOption.ResponseHeadersRead, cancellationToken);
+            response = SendCompat(request, HttpCompletionOption.ResponseHeadersRead, cancellationToken);
             if (response.Headers.Location != null)
             {
                 Uri nUri = null;
@@ -141,5 +141,17 @@ public class HttpSyncClient : HttpClient
             }
         }
         return response;
+    }
+
+    /// <summary>
+    /// Send the request with compatibility flags. Override this to use with async for platforms that don't support the syncrhonous operation like Xamarin.
+    /// </summary>
+    /// <param name="request">The request</param>
+    /// <param name="completionOption">The completion option</param>
+    /// <param name="cancellationToken">The cancellation token</param>
+    /// <returns>The response</returns>
+    protected virtual HttpResponseMessage SendCompat(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationToken cancellationToken)
+    {
+        return base.Send(request, completionOption, cancellationToken);
     }
 }

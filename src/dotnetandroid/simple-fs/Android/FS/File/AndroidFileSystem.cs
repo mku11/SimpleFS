@@ -53,7 +53,7 @@ public class AndroidFileSystem
         // android needs its own handler
         AndroidMessageHandler androidMessageHandler = new AndroidMessageHandler();
         androidMessageHandler.AllowAutoRedirect = false;
-        HttpSyncClient client = new HttpSyncClient(androidMessageHandler);
+        HttpSyncClient client = new AndroidHttpSyncClient(androidMessageHandler);
         HttpSyncClient.Instance = client;
         HttpFile.Client = client;
         HttpFileStream.Client = client;
