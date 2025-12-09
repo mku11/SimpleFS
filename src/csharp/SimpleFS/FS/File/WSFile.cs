@@ -671,10 +671,10 @@ public class WSFile : IFile
             SetServiceAuth(requestMessage);
             httpResponse = Client.Send(requestMessage);
             CheckStatus(httpResponse, HttpStatusCode.OK);
-            Response response = (Response)httpResponse.Content.ReadFromJsonAsync(typeof(Response)).Result;
+            this.response = (Response)httpResponse.Content.ReadFromJsonAsync(typeof(Response)).Result;
             response.Headers = httpResponse.Headers;
-            this.filePath = response.Path;
-            return true;
+            this.filePath = this.response.Path;
+            return this.response.Name == newFilename;
         }
         catch (Exception ex)
         {

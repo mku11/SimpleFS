@@ -591,7 +591,10 @@ public class WSFile implements IFile {
             setServiceAuth(conn);
             conn.connect();
             checkStatus(conn, HttpURLConnection.HTTP_OK);
-            return true;
+			this.response = new Response(new String(readAllBytes(conn.getInputStream())),
+                        conn.getHeaderFields());
+			this.filePath = this.response.path;
+            return this.response.name == newFilename;
         } catch (Exception e) {
             e.printStackTrace();
         } finally {

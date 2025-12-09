@@ -416,7 +416,9 @@ export class WSFile implements IFile {
         let httpResponse: Response = await HttpSyncClient.getResponse(this.#servicePath + "/api/rename", 
             { method: 'PUT', body: params, headers: headers });
         await this.#checkStatus(httpResponse, 200);
-        return true;
+		this.response = await httpResponse.json();
+        this.#filePath = this.response.path;
+        return this.response.name == newFilename;
     }
 
     /**
