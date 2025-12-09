@@ -37,6 +37,7 @@ using System.Runtime.CompilerServices;
 using Mku.FS.File;
 using static Mku.FS.File.HttpFile;
 using Mku.Encode;
+using System.Threading;
 
 namespace Mku.FS.Streams;
 
@@ -302,7 +303,7 @@ public class WSFileStream : RandomAccessStream
                 SetDefaultHeaders(requestMessage);
                 SetServiceAuth(requestMessage);
 
-                Task.Run(() =>
+                ThreadPool.QueueUserWorkItem(state =>
                 {
                     try
                     {
