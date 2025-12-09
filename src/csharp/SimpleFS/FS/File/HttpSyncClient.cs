@@ -98,7 +98,6 @@ public class HttpSyncClient : HttpClient
     /// <param name="completionOption">The completion option</param>
     /// <param name="cancellationToken">The cancellation token</param>
     /// <returns></returns>
-    [MethodImpl(MethodImplOptions.Synchronized)]
     public virtual new HttpResponseMessage Send(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationToken cancellationToken)
     {
         Uri uri = request.RequestUri;
@@ -116,11 +115,8 @@ public class HttpSyncClient : HttpClient
             foreach (var header in request.Headers)
                 headers.Add(header.Key, header.Value);
 
-            Task<HttpResponseMessage> task = Task.Run(async () => await SendAsync(request, HttpCompletionOption.ResponseHeadersRead));
-            task.ConfigureAwait(false);
-            task.Wait();
-            response = task.Result;
-            if(response.Headers.Location != null)
+            response = base.Send(request, HttpCompletionOption.ResponseHeadersRead, cancellationToken);
+            if (response.Headers.Location != null)
             {
                 Uri nUri = null;
                 if(response.Headers.Location.IsAbsoluteUri) {
