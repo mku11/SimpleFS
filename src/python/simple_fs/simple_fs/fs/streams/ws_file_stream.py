@@ -49,6 +49,7 @@ class WSFileStream(RandomAccessStream):
     __PATH: str = "path"
     __POSITION: str = "position"
     __LENGTH: str = "length"
+    __MAX_LEN_PER_REQUEST = 8 * 1024 * 1024
 
     def __init__(self, file: IFile, mode: str):
         """!
@@ -71,6 +72,7 @@ class WSFileStream(RandomAccessStream):
         self.conn: HTTPConnection | HTTPSConnection | None = None
         self.queue: Queue | None = None
         self.start_position: int = 0
+        self.end_write_position = 0
         self.upload_thread: Thread | None = None
         self.closed: bool = False
 
@@ -94,6 +96,7 @@ class WSFileStream(RandomAccessStream):
             raise IOError("Stream is closed")
         if not self.queue:
             self.start_position: int = self.get_position()
+            self.end_write_position = self.position + WSFileStream.__MAX_LEN_PER_REQUEST
             boundary = "*******"
             header = "--" + boundary + "\r\n"
             header += "Content-Disposition: form-data; name=\"file\"; filename=\"" \
@@ -252,6 +255,8 @@ class WSFileStream(RandomAccessStream):
         queue = self.get_output_queue()
         queue.put(buff)
         self.position += len(buff)
+        if self.position >= self.end_write_position:
+            self.reset()
 
     def seek(self, offset: int, origin: RandomAccessStream.SeekOrigin) -> int:
         """!
