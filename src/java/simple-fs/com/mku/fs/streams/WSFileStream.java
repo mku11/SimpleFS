@@ -43,6 +43,8 @@ public class WSFileStream extends RandomAccessStream {
     private static final String POSITION = "position";
     private static final String LENGTH = "length";
     private static final String boundary = "*******";
+    private static final int MAX_LEN_PER_REQUEST = 8 * 1024 * 1024;
+
     private HttpURLConnection conn;
 
     /**
@@ -80,6 +82,11 @@ public class WSFileStream extends RandomAccessStream {
      * Position to start writing from
      */
     private long startWritePosition;
+
+    /**
+     * Position to end writing
+     */
+    private long endWritePosition;
 
     /**
      * Construct a file stream from a JavaFile.
@@ -123,6 +130,7 @@ public class WSFileStream extends RandomAccessStream {
             throw new IOException("Stream is closed");
         if (this.outputStream == null) {
             startWritePosition = this.getPosition();
+            endWritePosition = this.position + WSFileStream.MAX_LEN_PER_REQUEST;
             try {
                 HashMap<String, String> params = new HashMap<>();
                 params.put(PATH, this.file.getPath());
@@ -269,6 +277,9 @@ public class WSFileStream extends RandomAccessStream {
     public void write(byte[] buffer, int offset, int count) throws IOException {
         getOutputStream().write(buffer, offset, count);
         position += Math.min(buffer.length, count);
+        if(position >= endWritePosition) {
+            this.reset();
+        }
     }
 
     /**
