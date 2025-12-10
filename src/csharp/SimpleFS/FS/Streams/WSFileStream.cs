@@ -52,6 +52,8 @@ public class WSFileStream : RandomAccessStream
     private static readonly string POSITION = "position";
     private static readonly string LENGTH = "length";
 
+	private static readonly int MAX_LEN_PER_REQUEST = 8 * 1024 * 1024;
+
     /// <summary>
     /// The HTTP client
     /// </summary>
@@ -68,6 +70,7 @@ public class WSFileStream : RandomAccessStream
 
     private bool canWrite;
     private long position;
+	private long endWritePosition;
     private HttpResponseMessage httpResponse;
     private HttpResponseMessage outHttpResponse;
 
@@ -234,6 +237,9 @@ public class WSFileStream : RandomAccessStream
     {
         GetOutputStream().Write(buffer, offset, count);
         position += Math.Min(buffer.Length, count);
+		if(position >= endWritePosition) {
+            this.Reset();
+        }
     }
 
 	[MethodImpl(MethodImplOptions.Synchronized)]
@@ -283,6 +289,7 @@ public class WSFileStream : RandomAccessStream
             HttpRequestMessage requestMessage = null;
             BlockingInputOutputAdapterStream outputStream = null;
             long startPosition = this.Position;
+			endWritePosition = this.position + WSFileStream.MAX_LEN_PER_REQUEST;
             try
             {
                 outputStream = new BlockingInputOutputAdapterStream();
