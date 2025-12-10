@@ -23,8 +23,8 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-import com.mku.fs.streams.WSFileStream;
 import com.mku.encode.Base64Utils;
+import com.mku.fs.streams.WSFileStream;
 import com.mku.streams.MemoryStream;
 import com.mku.streams.RandomAccessStream;
 import org.json.JSONArray;
@@ -32,7 +32,6 @@ import org.json.JSONObject;
 
 import java.io.*;
 import java.net.HttpURLConnection;
-import java.net.URL;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
@@ -594,7 +593,7 @@ public class WSFile implements IFile {
 			this.response = new Response(new String(readAllBytes(conn.getInputStream())),
                         conn.getHeaderFields());
 			this.filePath = this.response.path;
-            return this.response.name == newFilename;
+            return this.response.name.equals(newFilename);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
