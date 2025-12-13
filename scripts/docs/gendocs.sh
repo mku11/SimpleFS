@@ -10,3 +10,6 @@ doxygen Doxyfile.Net
 doxygen DoxyfilePython
 # alternative for python
 # pdoc ../../src/python/simple_fs -o ../../output/docs/python/ --html --force
+
+# TypeScript (install with: npm i typedoc)
+# npx typedoc --name SimpleFS --entryPointStrategy Expand --entryPoints ../../src/typescript/ -out ../../output/docs/typescript/html

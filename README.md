@@ -3,7 +3,7 @@ A simple and performant filesystem API. The syntax is easy and consistent across
 Published under MIT License  
 
 [![License: MIT](https://img.shields.io/github/license/mku11/SimpleFS.svg)](LICENSE)
-[![Version](https://img.shields.io/badge/version-1.0.1-blue)](https://github.com/mku11/SimpleFS/releases)
+[![Version](https://img.shields.io/badge/version-1.0.2-blue)](https://github.com/mku11/SimpleFS/releases)
 [![GitHub Releases](https://img.shields.io/github/downloads/mku11/SimpleFS/latest/total?logo=github)](https://github.com/mku11/SimpleFS/releases)
 
 ## Features
@@ -20,9 +20,15 @@ Published under MIT License
 - Http (Read-Only, supports Basic Auth)
 - WebService (Read/Write, compatible with WebFS, supports Basic Auth)
 
+## API Docs
+[**Java**](https://mku11.github.io/SimpleFS/docs/1.0.2/java/html)  
+[**C#**](https://mku11.github.io/SimpleFS/docs/1.0.2/csharp/html/namespaces.html)  
+[**Python**](https://mku11.github.io/SimpleFS/docs/1.0.2/python/html/namespaces.html)  
+[**TypeScript**](https://mku11.github.io/SimpleFS/docs/1.0.2/typescript/html)  
+
+
 ## Example  
 The API is consistent across all platforms/languages, this example is for Java.  
-There is a full list of file system operations, for more details see the API documentation reference in the project web site.  
 
 1. Get a directory:
 ```
