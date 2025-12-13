@@ -1,0 +1,6 @@
+var searchData=
+[
+  ['delete_0',['Delete',['../class_mku_1_1_f_s_1_1_file_1_1_file.html#aa6bfb8b598addda0726eff0b615f6855',1,'Mku.FS.File.File.Delete()'],['../class_mku_1_1_f_s_1_1_file_1_1_http_file.html#af13e46a2684881c5fd54525d772ef951',1,'Mku.FS.File.HttpFile.Delete()'],['../interface_mku_1_1_f_s_1_1_file_1_1_i_file.html#a2603b4e0d444a9fd4e74bc7c212592a1',1,'Mku.FS.File.IFile.Delete()'],['../class_mku_1_1_f_s_1_1_file_1_1_i_virtual_file.html#a01d93f6865ad80c4baec1c0ffea69db3',1,'Mku.FS.File.IVirtualFile.Delete()'],['../class_mku_1_1_f_s_1_1_file_1_1_w_s_file.html#adb5938f1fa1dc762f6a66a054f7d1b0b',1,'Mku.FS.File.WSFile.Delete()'],['../class_mku_1_1_android_1_1_f_s_1_1_file_1_1_android_file.html#acee5ae448bf50b4f7b780e37931b264c',1,'Mku.Android.FS.File.AndroidFile.Delete()']]],
+  ['deletefiles_1',['DeleteFiles',['../class_mku_1_1_f_s_1_1_drive_1_1_utils_1_1_file_commander.html#aae2741abd5f4d6c9d630e053d8452d8d',1,'Mku::FS::Drive::Utils::FileCommander']]],
+  ['deleterecursively_2',['DeleteRecursively',['../interface_mku_1_1_f_s_1_1_file_1_1_i_file.html#a8d85318ea9221e8cdcd04e581f0edc99',1,'Mku.FS.File.IFile.DeleteRecursively()'],['../class_mku_1_1_f_s_1_1_file_1_1_i_virtual_file.html#a5daf5ba214fc26748db4a5542ef52c82',1,'Mku.FS.File.IVirtualFile.DeleteRecursively()']]]
+];

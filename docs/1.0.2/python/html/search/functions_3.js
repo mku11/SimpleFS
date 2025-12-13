@@ -1,0 +1,5 @@
+var searchData=
+[
+  ['delete_0',['delete',['../classsimple__fs_1_1fs_1_1file_1_1file_1_1_file.html#a7c780529eb4e762bb224cf08427ee1fa',1,'simple_fs.fs.file.file.File.delete()'],['../classsimple__fs_1_1fs_1_1file_1_1http__file_1_1_http_file.html#a7c780529eb4e762bb224cf08427ee1fa',1,'simple_fs.fs.file.http_file.HttpFile.delete()'],['../classsimple__fs_1_1fs_1_1file_1_1ifile_1_1_i_file.html#a7c780529eb4e762bb224cf08427ee1fa',1,'simple_fs.fs.file.ifile.IFile.delete()'],['../classsimple__fs_1_1fs_1_1file_1_1ivirtual__file_1_1_i_virtual_file.html#abdc24d676a4e66c0aed3ec61fdcb5435',1,'simple_fs.fs.file.ivirtual_file.IVirtualFile.delete()'],['../classsimple__fs_1_1fs_1_1file_1_1ws__file_1_1_w_s_file.html#a7c780529eb4e762bb224cf08427ee1fa',1,'simple_fs.fs.file.ws_file.WSFile.delete()']]],
+  ['delete_5frecursively_1',['delete_recursively',['../classsimple__fs_1_1fs_1_1file_1_1ifile_1_1_i_file.html#a072f3c8f82b7c6cc4419b7e459f70720',1,'simple_fs.fs.file.ifile.IFile.delete_recursively()'],['../classsimple__fs_1_1fs_1_1file_1_1ivirtual__file_1_1_i_virtual_file.html#ae2d7108054a0caa8953f187c502524bf',1,'simple_fs.fs.file.ivirtual_file.IVirtualFile.delete_recursively()']]]
+];
