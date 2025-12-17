@@ -342,7 +342,8 @@ class HttpFile(IFile):
 
     def __set_default_headers(self, headers: dict[str, str]):
         headers["Cache"] = "no-store"
-        headers["Content-type"] = "application/x-www-form-urlencoded"
+        # some servers use compression for all mime types if it's a small file so we retrieve the correct file length
+        headers["Accept-Encoding"] = "identity"
 
     def __create_connection(self, url: str) -> HTTPConnection:
         conn: HTTPConnection = HttpSyncClient.create_connection(url)

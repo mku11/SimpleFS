@@ -98,7 +98,7 @@ public class HttpFile : IFile
                 builder.Query = query.ToString();
                 string url = builder.ToString();
 
-                HttpRequestMessage requestMessage = new HttpRequestMessage(HttpMethod.Get, url);
+                HttpRequestMessage requestMessage = new HttpRequestMessage(HttpMethod.Head, url);
                 SetDefaultHeaders(requestMessage);
                 SetServiceAuth(requestMessage);
                 httpResponse = Client.Send(requestMessage);
@@ -418,6 +418,8 @@ public class HttpFile : IFile
     private void SetDefaultHeaders(HttpRequestMessage requestMessage)
     {
         requestMessage.Headers.Add("Cache", "no-store");
+		// some servers use compression for all mime types if it's a small file so we retrieve the correct file length
+		requestMessage.Headers.Add("Accept-Encoding", "identity");
     }
 
     class Response

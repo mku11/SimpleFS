@@ -516,6 +516,8 @@ public class HttpFile implements IFile {
 
     private void setDefaultHeaders(HttpURLConnection conn) {
         conn.setRequestProperty("Cache", "no-store");
+		// some servers use compression for all mime types if it's a small file so we retrieve the correct file length
+		conn.setRequestProperty("Accept-Encoding", "identity");
     }
 	
     private static class Response {
