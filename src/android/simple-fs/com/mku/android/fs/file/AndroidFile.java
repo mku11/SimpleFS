@@ -23,7 +23,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-import android.content.Context;
 import android.net.Uri;
 import android.os.Build;
 import android.os.ParcelFileDescriptor;
@@ -32,7 +31,6 @@ import android.provider.DocumentsContract;
 import androidx.documentfile.provider.DocumentFile;
 
 import com.mku.android.fs.streams.AndroidFileStream;
-import com.mku.android.salmonfs.drive.AndroidDrive;
 import com.mku.fs.file.Credentials;
 import com.mku.fs.file.IFile;
 import com.mku.func.BiConsumer;
