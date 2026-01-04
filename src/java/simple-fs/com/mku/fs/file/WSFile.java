@@ -74,7 +74,7 @@ public class WSFile implements IFile {
     }
 
     /**
-     * Salmon Web service credentials
+     * Web service credentials
      */
     private Credentials credentials;
 
