@@ -2,7 +2,7 @@ package com.mku.fs.file;
 /*
 MIT License
 
-Copyright (c) 2021 Max Kas
+Copyright (c) 2026 Max Kas
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -28,6 +28,7 @@ import com.mku.fs.streams.WSFileStream;
 import com.mku.streams.MemoryStream;
 import com.mku.streams.RandomAccessStream;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.*;
@@ -385,13 +386,13 @@ public class WSFile implements IFile {
         return 0;
     }
 
-    private int getFileListCount(InputStream contentInputStream) throws IOException {
+    private int getFileListCount(InputStream contentInputStream) throws IOException, JSONException {
         String content = new String(readAllBytes(contentInputStream));
         JSONArray object = new JSONArray(content);
         return object.length();
     }
 
-    private List<Response> parseFileList(InputStream contentInputStream) throws IOException {
+    private List<Response> parseFileList(InputStream contentInputStream) throws IOException, JSONException {
         String content = new String(readAllBytes(contentInputStream));
         JSONArray object = new JSONArray(content);
         List<Response> list = new ArrayList<>();
@@ -755,7 +756,7 @@ public class WSFile implements IFile {
         boolean exists;
         Map<String, List<String>> headers;
 
-        Response(String jsonString, Map<String, List<String>> headers) {
+        Response(String jsonString, Map<String, List<String>> headers) throws JSONException {
             JSONObject obj = new JSONObject(jsonString);
             this.name = obj.getString("name");
             this.path = obj.getString("path");
