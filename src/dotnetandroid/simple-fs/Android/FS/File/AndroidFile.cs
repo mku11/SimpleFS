@@ -38,7 +38,6 @@ namespace Mku.Android.FS.File;
 
 /// <summary>
 ///  Implementation of the IFile for Android using Storage Access Framework that supports read/write to external SD cards.
-///  This class is used by the AndroidDrive implementation so you can use AesFile wrapper transparently
 /// </summary>
 ///
 public class AndroidFile : IFile
