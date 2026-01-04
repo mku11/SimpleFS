@@ -28,13 +28,7 @@ import android.net.Uri;
 
 import androidx.documentfile.provider.DocumentFile;
 
-import com.mku.android.salmonfs.drive.AndroidDrive;
-import com.mku.fs.drive.utils.FileExporter;
-import com.mku.fs.file.File;
 import com.mku.fs.file.IFile;
-import com.mku.salmonfs.drive.Drive;
-import com.mku.salmonfs.drive.utils.AesFileExporter;
-import com.mku.salmonfs.file.AesFile;
 
 /**
  * Utility for Android file system
