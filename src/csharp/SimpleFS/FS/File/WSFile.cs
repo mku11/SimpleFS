@@ -406,7 +406,7 @@ public class WSFile : IFile
 				return false;
 			}
 		}
-	};
+	}
 
     /// <summary>
     ///  True if this is a file.
