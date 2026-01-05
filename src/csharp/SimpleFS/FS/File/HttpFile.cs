@@ -300,10 +300,6 @@ public class HttpFile : IFile
                     string filename = matcher.Groups[1].Value;
                     if (!filename.Contains(":") && !filename.Contains(".."))
                     {
-                        if (filename.Contains("%"))
-                        {
-                            filename = HttpUtility.UrlDecode(filename);
-                        }
                         IFile file = new HttpFile(this.filePath 
                             + HttpFile.Separator + filename, ServiceCredentials);
                         files.Add(file);

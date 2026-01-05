@@ -343,10 +343,6 @@ public class HttpFile implements IFile {
                     String filename = matcher.group(2);
                     if (filename.contains(":") || filename.contains(".."))
                         continue;
-                    if (filename.contains("%")) {
-						// do not use the charset variable for backwards compatibility with android
-                        filename = URLDecoder.decode(filename, StandardCharsets.UTF_8.name());
-                    }
                     IFile file = new HttpFile(this.filePath + HttpFile.separator + filename, credentials);
                     files.add(file);
                 }

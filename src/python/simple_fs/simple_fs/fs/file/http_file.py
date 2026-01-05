@@ -256,8 +256,6 @@ class HttpFile(IFile):
                     filename: str = match
                     if ":" in filename or ".." in filename:
                         continue
-                    if "%" in filename:
-                        filename = urllib.parse.unquote(filename)
                     p_file: HttpFile = HttpFile(self.__file_path + HttpFile.separator + filename,
                                                 self.__credentials)
                     files.append(p_file)

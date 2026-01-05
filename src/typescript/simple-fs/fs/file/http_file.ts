@@ -266,9 +266,6 @@ export class HttpFile implements IFile {
 				let filename: string = match[1];
 				if (filename.includes(":") || filename.includes(".."))
 					continue;
-				if (filename.includes("%")){
-					filename = decodeURIComponent(filename);
-				}
 				let file: IFile = new HttpFile(this.#filePath + HttpFile.separator + filename, this.#credentials);
 				files.push(file);
 			}
