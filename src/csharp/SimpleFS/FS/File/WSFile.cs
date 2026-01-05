@@ -396,11 +396,15 @@ public class WSFile : IFile
     ///  True if this is a directory.
     /// </summary>
     ///  <returns>True if directory</returns>
-    public bool IsDirectory => { 
-		try{
-			return GetResponse().IsDirectory; 
-		} catch (Exception ex) {
-			return false;
+    public bool IsDirectory
+	{
+		get
+		{
+			try{
+				return GetResponse().IsDirectory; 
+			} catch (Exception ex) {
+				return false;
+			}
 		}
 	};
 
@@ -408,11 +412,15 @@ public class WSFile : IFile
     ///  True if this is a file.
     /// </summary>
     ///  <returns>True if file</returns>
-    public bool IsFile => { 
-		try {
-			return GetResponse().IsFile;
-		} catch (Exception ex) {
-			return false;
+    public bool IsFile
+	{
+		get
+		{
+			try {
+				return GetResponse().IsFile;
+			} catch (Exception ex) {
+				return false;
+			}
 		}
 	}
 		

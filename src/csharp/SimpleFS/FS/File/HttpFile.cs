@@ -250,11 +250,15 @@ public class HttpFile : IFile
     ///  True if this is a file.
     /// </summary>
     ///  <returns>True if file</returns>
-    public bool IsFile => {
-		try {
-			return !IsDirectory && Exists;
-		} catch (Exception ex) {
-			return false;
+    public bool IsFile
+	{
+		get
+		{
+			try {
+				return !IsDirectory && Exists;
+			} catch (Exception ex) {
+				return false;
+			}
 		}
 	}
 
