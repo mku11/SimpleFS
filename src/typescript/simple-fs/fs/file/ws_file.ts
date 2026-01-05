@@ -242,7 +242,11 @@ export class WSFile implements IFile {
      * @returns {Promise<boolean>} True if directory
      */
     public async isDirectory(): Promise<boolean> {
-        return (await this.#getResponse()).directory;
+		try {
+			return (await this.#getResponse()).directory;
+		} catch (ex) {
+			return false;
+		}
     }
 
     /**
@@ -250,7 +254,11 @@ export class WSFile implements IFile {
      * @returns {Promise<boolean>} True if file
      */
     public async isFile(): Promise<boolean> {
-        return (await this.#getResponse()).file;
+		try {
+			return (await this.#getResponse()).file;
+		} catch (ex) {
+			return false;
+		}
     }
 
     /**

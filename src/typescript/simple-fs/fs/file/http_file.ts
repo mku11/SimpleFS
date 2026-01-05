@@ -179,15 +179,19 @@ export class HttpFile implements IFile {
      * @returns {Promise<boolean>} True if directory
      */
     public async isDirectory(): Promise<boolean> {
-        let res: Response = (await this.#getResponse());
-        if (res == null)
-            throw new Error("Could not get response");
-        if (res.headers == null)
-            throw new Error("Could not get headers");
-        let contentType: string | null = res.headers.get("Content-Type");
-        if (contentType == null)
-            throw new Error("Could not get content type");
-        return contentType.startsWith("text/html");
+		try {
+			let res: Response = (await this.#getResponse());
+			if (res == null)
+				throw new Error("Could not get response");
+			if (res.headers == null)
+				throw new Error("Could not get headers");
+			let contentType: string | null = res.headers.get("Content-Type");
+			if (contentType == null)
+				throw new Error("Could not get content type");
+			return contentType.startsWith("text/html");
+		} catch (ex) {
+			return false;
+		}
     }
 
     /**
@@ -195,7 +199,11 @@ export class HttpFile implements IFile {
      * @returns {Promise<boolean>} True if file
      */
     public async isFile(): Promise<boolean> {
-        return !await this.isDirectory() && await this.exists();
+		try {
+			return !await this.isDirectory() && await this.exists();
+		} catch (ex) {
+			return false;
+		}
     }
 
     /**

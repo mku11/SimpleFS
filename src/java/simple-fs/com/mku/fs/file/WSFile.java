@@ -232,7 +232,7 @@ public class WSFile implements IFile {
         try {
             return getResponse().exists;
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            return false;
         }
     }
 
@@ -316,7 +316,7 @@ public class WSFile implements IFile {
         try {
             return getResponse().isDirectory;
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            return false;
         }
     }
 
@@ -329,7 +329,7 @@ public class WSFile implements IFile {
         try {
             return getResponse().isFile;
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            return false;
         }
     }
 

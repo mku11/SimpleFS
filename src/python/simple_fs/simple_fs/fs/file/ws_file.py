@@ -272,14 +272,20 @@ class WSFile(IFile):
         True if this is a directory.
         @returns True if directory
         """
-        return self.__get_response()['directory']
+        try:
+            return self.__get_response()['directory']
+        except Exception as ex:
+            return False
 
     def is_file(self) -> bool:
         """!
         True if this is a file.
         @returns True if file
         """
-        return self.__get_response()['file']
+        try:
+            return self.__get_response()['file']
+        except Exception as ex:
+            return False
 
     def get_last_date_modified(self) -> int:
         """!

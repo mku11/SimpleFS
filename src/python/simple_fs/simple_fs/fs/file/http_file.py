@@ -194,20 +194,26 @@ class HttpFile(IFile):
         True if this is a directory.
         @returns True if directory
         """
-        res: HTTPResponse = self.__get_response()
-        if not res:
-            raise Exception("Could not get response")
-        content_type: str | None = res.getheader("Content-Type")
-        if not content_type:
-            raise Exception("Could not get content type")
-        return content_type.startswith("text/html")
+        try:
+            res: HTTPResponse = self.__get_response()
+            if not res:
+                raise Exception("Could not get response")
+            content_type: str | None = res.getheader("Content-Type")
+            if not content_type:
+                raise Exception("Could not get content type")
+            return content_type.startswith("text/html")
+        except Exception as ex:
+            return False
 
     def is_file(self) -> bool:
         """!
         True if this is a file.
         @returns True if file
         """
-        return not self.is_directory() and self.exists()
+        try:
+            return not self.is_directory() and self.exists()
+        except Exception as ex:
+            return False
 
     def get_last_date_modified(self) -> int:
         """!

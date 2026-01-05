@@ -150,7 +150,7 @@ public class HttpFile implements IFile {
         try {
             return this.getResponse() != null;
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            return false;
         }
     }
 
@@ -246,7 +246,7 @@ public class HttpFile implements IFile {
         try {
             res = this.getResponse();
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            return false;
         }
         if (res == null)
             throw new RuntimeException("Could not get response");

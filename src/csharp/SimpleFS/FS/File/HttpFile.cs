@@ -233,12 +233,16 @@ public class HttpFile : IFile
     {
         get
         {
-            Response res = this.GetResponse();
-            if (res == null)
-                throw new Exception("Could not get response");
-            if (res.ContentType == null)
-                throw new Exception("Could not get content type");
-            return res.ContentType.ToString().StartsWith("text/html");
+			try {
+				Response res = this.GetResponse();
+				if (res == null)
+					throw new Exception("Could not get response");
+				if (res.ContentType == null)
+					throw new Exception("Could not get content type");
+				return res.ContentType.ToString().StartsWith("text/html");
+			} catch (Exception ex) {
+				return false;
+			}
         }
     }
 
@@ -246,7 +250,13 @@ public class HttpFile : IFile
     ///  True if this is a file.
     /// </summary>
     ///  <returns>True if file</returns>
-    public bool IsFile => !IsDirectory && Exists;
+    public bool IsFile => {
+		try {
+			return !IsDirectory && Exists;
+		} catch (Exception ex) {
+			return false;
+		}
+	}
 
     /// <summary>
     ///  Get the last modified date on disk.

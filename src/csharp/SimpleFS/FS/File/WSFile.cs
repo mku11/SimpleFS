@@ -396,13 +396,26 @@ public class WSFile : IFile
     ///  True if this is a directory.
     /// </summary>
     ///  <returns>True if directory</returns>
-    public bool IsDirectory => GetResponse().IsDirectory;
+    public bool IsDirectory => { 
+		try{
+			return GetResponse().IsDirectory; 
+		} catch (Exception ex) {
+			return false;
+		}
+	};
 
     /// <summary>
     ///  True if this is a file.
     /// </summary>
     ///  <returns>True if file</returns>
-    public bool IsFile => GetResponse().IsFile;
+    public bool IsFile => { 
+		try {
+			return GetResponse().IsFile;
+		} catch (Exception ex) {
+			return false;
+		}
+	}
+		
 
     /// <summary>
     ///  Get the last modified date on disk.
