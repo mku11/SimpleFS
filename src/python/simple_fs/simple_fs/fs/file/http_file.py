@@ -81,7 +81,7 @@ class HttpFile(IFile):
                 count = 0
                 while count < HttpFile.MAX_REDIRECTS:
                     conn = self.__create_connection(url)
-                    conn.request("GET", urlparse(url).path, headers=headers)
+                    conn.request("HEAD", urlparse(url).path, headers=headers)
                     self.__response = conn.getresponse()
                     if self.__response.getheader('location'):
                         n_url = urljoin(url, self.__response.getheader('location'))

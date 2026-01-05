@@ -98,8 +98,7 @@ public class HttpFile implements IFile {
         if(this.response == null) {
 			HttpURLConnection conn = null;
             try {
-                // TODO: should this be INFO method?
-                conn = createConnection("GET", this.filePath);
+                conn = createConnection("HEAD", this.filePath);
                 setDefaultHeaders(conn);
 				setServiceAuth(conn);
                 conn.connect();
