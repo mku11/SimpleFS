@@ -275,16 +275,24 @@ public class HttpFile implements IFile {
         try {
             lastDateModified = getResponse().getHeader("last-modified");
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
+		if (lastDateModified == null) {
+			try {
+				lastDateModified = getResponse().getHeader("date");
+			} catch (Exception e) {
+				e.printStackTrace();
+			}	
+		}
         if (lastDateModified == null) {
-            lastDateModified = "0";
+            return 0;
         }
         Date date = null;
         try {
             date = new SimpleDateFormat(DATE_FORMAT).parse(lastDateModified);
         } catch (ParseException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace(e);
+			return 0;
         }
         long lastModified = date.getTime() / 1000;
         return lastModified;

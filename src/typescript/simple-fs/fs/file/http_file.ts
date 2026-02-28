@@ -217,11 +217,16 @@ export class HttpFile implements IFile {
 			lastDateModified = headers.get("date");
 		}
 		if (lastDateModified == null) {
-			lastDateModified = "0";
+			return 0;
 		}
-        let date: Date = new Date(lastDateModified);
-        let lastModified = date.getTime();
-        return lastModified;
+		try {
+			let date: Date = new Date(lastDateModified);
+			let lastModified = date.getTime();
+			return lastModified;
+		} catch (ex) {
+			return 0;
+		}
+		return 0;
     }
 
     /**
