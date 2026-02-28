@@ -293,7 +293,7 @@ public class HttpFile implements IFile {
         try {
             date = new SimpleDateFormat(DATE_FORMAT).parse(lastDateModified);
         } catch (ParseException e) {
-            e.printStackTrace(e);
+            e.printStackTrace();
 			return 0;
         }
         long lastModified = date.getTime() / 1000;
