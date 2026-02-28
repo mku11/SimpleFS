@@ -160,6 +160,8 @@ public class HttpFile implements IFile {
      * @return The display path.
      */
     public String getDisplayPath() {
+		if(filePath.contains("%"))
+			return URLDecoder.decode(filePath, StandardCharsets.UTF_8.name());
         return filePath;
     }
 

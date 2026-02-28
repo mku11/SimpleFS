@@ -137,6 +137,8 @@ class HttpFile(IFile):
         Get the absolute path on the physical disk.
         @returns The absolute path.
         """
+        if "%" in self.__file_path:
+            return urllib.parse.unquote(self.__file_path)
         return self.__file_path
 
     def get_name(self) -> str:

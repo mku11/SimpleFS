@@ -150,7 +150,15 @@ public class HttpFile : IFile
     ///  Get the absolute path on the physical disk. For C# this is the same as the filepath.
 	/// </summary>
 	///  <returns>The absolute path.</returns>
-    public string DisplayPath => filePath;
+    public string DisplayPath 
+	{
+		get
+		{
+			if(filePath.Contains("%"))
+				return HttpUtility.UrlDecode(filePath);
+			return filePath;
+		}
+	}
 
     /// <summary>
     ///  Get the name of this file or directory.
