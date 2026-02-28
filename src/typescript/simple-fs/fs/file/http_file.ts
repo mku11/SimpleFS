@@ -121,7 +121,7 @@ export class HttpFile implements IFile {
      * @returns {string} The absolute path.
      */
     public getDisplayPath(): string {
-		if(this.#filePath.contains("%"))
+		if(this.#filePath.includes("%"))
 			return decodeURIComponent(this.#filePath);
         return this.#filePath;
     }
