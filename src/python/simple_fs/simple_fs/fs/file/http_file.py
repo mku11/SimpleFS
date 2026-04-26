@@ -241,8 +241,8 @@ class HttpFile(IFile):
         """
         response: HTTPResponse = self.__get_response()
         if 'content-length' in response.headers:
-        	return int(response.headers['content-length'])
-		return response.length
+            return int(response.headers['content-length'])
+        return response.length
 
     def get_children_count(self) -> int:
         """!
