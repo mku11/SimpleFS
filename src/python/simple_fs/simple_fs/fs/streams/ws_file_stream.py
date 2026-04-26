@@ -26,7 +26,9 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
 
-from typeguard import typechecked
+from typing import Any
+
+from beartype import beartype
 from queue import Queue
 from threading import Thread
 from http.client import HTTPResponse, HTTPConnection, HTTPSConnection
@@ -40,7 +42,7 @@ from simple_fs.fs.file.http_sync_client import HttpSyncClient
 from simple_io.streams.random_access_stream import RandomAccessStream
 
 
-@typechecked
+@beartype
 class WSFileStream(RandomAccessStream):
     """!
     Stream implemetation for web service files.
@@ -107,7 +109,7 @@ class WSFileStream(RandomAccessStream):
             footer = "\r\n--" + boundary + "--"
             footer_data: bytearray = bytearray(footer.encode())
 
-            @typechecked
+            @beartype
             class PipedIO(RawIOBase):
                 def __init__(self, queue: Queue):
                     self.is_closed = False

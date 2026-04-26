@@ -26,7 +26,9 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
 
-from typeguard import typechecked
+from typing import Any
+
+from beartype import beartype
 from http.client import HTTPResponse, HTTPConnection, HTTPSConnection
 from urllib.parse import urlparse
 from urllib.parse import urljoin
@@ -38,7 +40,7 @@ from simple_fs.fs.file.http_sync_client import HttpSyncClient
 from simple_io.streams.random_access_stream import RandomAccessStream
 
 
-@typechecked
+@beartype
 class HttpFileStream(RandomAccessStream):
     """!
     Stream implemetation for HTTP files.

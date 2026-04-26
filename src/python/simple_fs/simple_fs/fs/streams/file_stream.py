@@ -27,15 +27,15 @@ SOFTWARE.
 """
 
 from mmap import mmap
-from typing import BinaryIO
-from typeguard import typechecked
+from typing import Any, BinaryIO
+from beartype import beartype
 import sys
 
 from simple_fs.fs.file.ifile import IFile
 from simple_io.streams.random_access_stream import RandomAccessStream
 
 
-@typechecked
+@beartype
 class FileStream(RandomAccessStream):
     """!
     Stream implemetation for local files.

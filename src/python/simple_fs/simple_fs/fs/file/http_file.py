@@ -32,7 +32,7 @@ from urllib.parse import urlparse
 from http.client import HTTPResponse, HTTPConnection, HTTPSConnection
 from simple_io.convert.base_64 import Base64
 import re
-from typeguard import typechecked
+from beartype import beartype
 import urllib
 from urllib.parse import urljoin
 from datetime import datetime
@@ -45,7 +45,7 @@ from simple_fs.fs.streams.http_file_stream import HttpFileStream
 from simple_io.streams.random_access_stream import RandomAccessStream
 
 
-@typechecked
+@beartype
 class HttpFile(IFile):
     """!
     Http (read only) File implementation for Python.
@@ -240,7 +240,9 @@ class HttpFile(IFile):
         @returns The size
         """
         response: HTTPResponse = self.__get_response()
-        return response.length
+        if 'content-length' in response.headers:
+        	return int(response.headers['content-length'])
+		return response.length
 
     def get_children_count(self) -> int:
         """!

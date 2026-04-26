@@ -30,14 +30,14 @@ SOFTWARE.
 
 from abc import ABC
 from typing import Any, Callable
-from typeguard import typechecked
+from beartype import beartype
 
 from simple_fs.fs.file.ifile import IFile
 from simple_fs.fs.drive.virtual_drive import VirtualDrive
 from simple_io.streams.random_access_stream import RandomAccessStream
 
 
-@typechecked
+@beartype
 class IVirtualFile(ABC):
     """!
     Interface for a virtual file.
@@ -218,7 +218,7 @@ class IVirtualFile(ABC):
         """
         pass
 
-    @typechecked
+    @beartype
     class VirtualRecursiveCopyOptions:
         """!
           Directory copy options (recursively)
@@ -244,7 +244,7 @@ class IVirtualFile(ABC):
           Callback where progress changed
         """
 
-    @typechecked
+    @beartype
     class VirtualRecursiveMoveOptions:
         """!
           Directory move options (recursively)
@@ -270,7 +270,7 @@ class IVirtualFile(ABC):
           Callback when progress changes
         """
 
-    @typechecked
+    @beartype
     class VirtualRecursiveDeleteOptions:
         """!
           Directory move options (recursively)

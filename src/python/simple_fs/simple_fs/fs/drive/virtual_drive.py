@@ -3,6 +3,7 @@
 """
 
 from __future__ import annotations
+from typing import Any
 
 __license__ = """
 MIT License
@@ -29,11 +30,11 @@ SOFTWARE.
 """
 
 from abc import ABC, abstractmethod
-from typeguard import typechecked
+from beartype import beartype
 from simple_fs.fs.file.ifile import IFile
 
 
-@typechecked
+@beartype
 class VirtualDrive(ABC):
     """!
     Virtual Drive
@@ -60,7 +61,7 @@ class VirtualDrive(ABC):
         pass
 
     @abstractmethod
-    def get_virtual_file(self, file: IFile) -> any:
+    def get_virtual_file(self, file: IFile) -> Any:
         """!
         Get the virtual file backed by the file provided
         @param file: The real file
@@ -69,7 +70,7 @@ class VirtualDrive(ABC):
         pass
 
     @abstractmethod
-    def get_root(self) -> any:
+    def get_root(self) -> Any:
         """!
         Get the virtual root
         """

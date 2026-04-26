@@ -33,7 +33,7 @@ import urllib.parse
 from http.client import HTTPResponse, HTTPConnection, HTTPSConnection
 from typing import Any
 
-from typeguard import typechecked
+from beartype import beartype
 from threading import RLock
 
 from simple_io.convert.base_64 import Base64
@@ -44,7 +44,7 @@ from simple_fs.fs.streams.ws_file_stream import WSFileStream
 from simple_io.streams.random_access_stream import RandomAccessStream
 
 
-@typechecked
+@beartype
 class WSFile(IFile):
     """!
     Web Service File implementation for Python.
@@ -81,7 +81,7 @@ class WSFile(IFile):
         self.__credentials: Credentials = credentials
         self.__response: HTTPResponse | None = None
 
-    def __get_response(self) -> dict[str, any]:
+    def __get_response(self) -> dict[str, Any]:
         with WSFile.__lock_object:
             if not self.__response:
                 headers = {}

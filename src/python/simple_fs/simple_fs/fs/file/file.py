@@ -29,14 +29,14 @@ SOFTWARE.
 """
 
 import os
-from typeguard import typechecked
+from beartype import beartype
 
 from simple_fs.fs.file.ifile import IFile
 from simple_fs.fs.streams.file_stream import FileStream
 from simple_io.streams.random_access_stream import RandomAccessStream
 
 
-@typechecked
+@beartype
 class File(IFile):
     """!
     File implementation for Python.

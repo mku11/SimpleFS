@@ -32,9 +32,9 @@ import http.client
 from http.client import HTTPConnection
 from urllib.parse import urlparse
 
-from typeguard import typechecked
+from beartype import beartype
 
-@typechecked
+@beartype
 class HttpSyncClient:
     """!
     HTTP Client

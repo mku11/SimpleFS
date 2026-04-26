@@ -31,14 +31,14 @@ SOFTWARE.
 from abc import ABC
 from datetime import datetime
 from typing import Callable, Any
-from typeguard import typechecked
-import time
+from beartype import beartype
+
 import random
 
 from simple_io.streams.random_access_stream import RandomAccessStream
 
 
-@typechecked
+@beartype
 class IFile(ABC):
     """!
     Interface that represents a real file. This class is used internally by the virtual disk to
@@ -442,7 +442,7 @@ class IFile(ABC):
         else:
             return ""
 
-    @typechecked
+    @beartype
     class CopyOptions:
         """!
         File copy options
@@ -458,7 +458,7 @@ class IFile(ABC):
         Callback where progress changed
         """
 
-    @typechecked
+    @beartype
     class MoveOptions:
         """!
         File move options
@@ -474,7 +474,7 @@ class IFile(ABC):
         Callback where progress changed
         """
 
-    @typechecked
+    @beartype
     class RecursiveCopyOptions:
         """!
         Directory copy options (recursively)
@@ -500,7 +500,7 @@ class IFile(ABC):
         Callback where progress changed
         """
 
-    @typechecked
+    @beartype
     class RecursiveMoveOptions:
         """!
         Directory move options (recursively)
@@ -526,7 +526,7 @@ class IFile(ABC):
         Callback when progress changes
         """
 
-    @typechecked
+    @beartype
     class RecursiveDeleteOptions:
         """!
         Directory move options (recursively)
@@ -542,7 +542,7 @@ class IFile(ABC):
         Callback when progress changed
         """
 
-    @typechecked
+    @beartype
     class CopyContentsOptions:
         """!
         Directory move options (recursively)
