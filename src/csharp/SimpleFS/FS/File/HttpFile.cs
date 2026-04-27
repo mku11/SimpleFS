@@ -246,7 +246,7 @@ public class HttpFile : IFile
 				if (res == null)
 					throw new Exception("Could not get response");
 				if (res.ContentType == null)
-					throw new Exception("Could not get content type");
+					return false;
 				return res.ContentType.ToString().StartsWith("text/html");
 			} catch (Exception ex) {
 				return false;

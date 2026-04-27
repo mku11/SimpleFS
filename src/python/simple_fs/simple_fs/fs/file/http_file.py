@@ -202,7 +202,7 @@ class HttpFile(IFile):
                 raise Exception("Could not get response")
             content_type: str | None = res.getheader("Content-Type")
             if not content_type:
-                raise Exception("Could not get content type")
+                return False
             return content_type.startswith("text/html")
         except Exception as ex:
             return False

@@ -189,7 +189,7 @@ export class HttpFile implements IFile {
 				throw new Error("Could not get headers");
 			let contentType: string | null = res.headers.get("Content-Type");
 			if (contentType == null)
-				throw new Error("Could not get content type");
+				return false;
 			return contentType.startsWith("text/html");
 		} catch (ex) {
 			return false;

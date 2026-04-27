@@ -259,7 +259,7 @@ public class HttpFile implements IFile {
             throw new RuntimeException("Could not get response");
         String contentType = res.getHeader("Content-Type");
         if (contentType == null)
-            throw new RuntimeException("Could not get content type");
+            return false;
         return contentType.startsWith("text/html");
     }
 
