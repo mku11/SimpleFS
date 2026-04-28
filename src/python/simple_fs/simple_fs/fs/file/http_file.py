@@ -223,13 +223,13 @@ class HttpFile(IFile):
         @returns The last modified date in milliseconds
         """
         response: HTTPResponse = self.__get_response()
-        lastDateModified = response.headers['last-modified']
-        if not last-modified:
-            lastDateModified = response.headers['date']
+        last_date_modified = response.headers['last-modified']
+        if not last_date_modified:
+            last_date_modified = response.headers['date']
         if not last-modified:
             return 0;
         try:
-            return int(datetime.strptime(lastDateModified, '%a, %d %b %Y %H:%M:%S GMT').timestamp())
+            return int(datetime.strptime(last_date_modified, '%a, %d %b %Y %H:%M:%S GMT').timestamp())
         except Exception as ex:
             return 0
         return 0
