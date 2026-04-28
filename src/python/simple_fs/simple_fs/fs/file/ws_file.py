@@ -484,8 +484,8 @@ class WSFile(IFile):
             http_response = conn.getresponse()
             self.__check_status(http_response, 200)
             self.__response = json.loads(http_response.read())
-            self.__file_path = self.__response.path
-            return self.__response.name == new_filename
+            self.__file_path = self.__response['path']
+            return self.__response['name'] == new_filename
         finally:
             if conn:
                 conn.close()
