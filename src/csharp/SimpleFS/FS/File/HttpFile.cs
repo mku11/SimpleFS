@@ -107,7 +107,7 @@ public class HttpFile : IFile
                 {
                     Length = httpResponse.Content.Headers.ContentLength??0,
                     LastModified = httpResponse.Content.Headers.LastModified?.ToUnixTimeMilliseconds()??0,
-                    ContentType = httpResponse.Content.Headers.ContentType.ToString(),
+                    ContentType = httpResponse.Content.Headers.ContentType?.ToString(),
                     StatusCode = (int) httpResponse.StatusCode
                 };
             }
