@@ -226,7 +226,7 @@ class HttpFile(IFile):
         last_date_modified = response.headers['last-modified']
         if not last_date_modified:
             last_date_modified = response.headers['date']
-        if not last-modified:
+        if not last_date_modified:
             return 0;
         try:
             return int(datetime.strptime(last_date_modified, '%a, %d %b %Y %H:%M:%S GMT').timestamp())
